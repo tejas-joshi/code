@@ -1,0 +1,245 @@
+﻿LAST UPDATED : 
+6-9-2013
+DATE OF LAST COVERED QUESTION :
+     (update when you close)
+
+
+ 
+
+QUESTION
+We have a day to work and we have different kinds works do to which has start-time and end-time. We have to choose the different works so that we can achieve the maximum number of minutes in a day to work. Chosen works should not overlaps to each other. 
+Ex-1: 
+Start-Time End-Time 
+W1: 6:00 9:30 
+W2: 9:00 12:30 
+W3: 12:00 14:30 
+W4: 10:00 10:30 
+W5: 11:00 13:30 
+Solution: W1 + W4 + W3(or W5) 
+Ex-2: 
+Start-Time End-Time 
+W1: 6:00 8:30 
+W2: 9:00 11:00 
+W3: 12:30 14:00 
+W4: 8:00 9:00 
+W5: 10:30 14:00 
+W6: 9:00 11:30 
+Solution : W1 + W6 + W3 = 390min
+
+Solution:
+
+Here is a DP approach. 
+Arrange the tasks in some order (any order) 
+Let M(i) denote the maximum work done using the first i tasks. 
+We need to find the value of M(n). 
+To do this let's say we need to calculate M(i+1) from M(i) 
+If inserting (i + 1)th task in the previous max sequence increases the Max work spent, then change the sequence and include this (i+1)th task in the already existing sequence. 
+If inserting (i + 1)th task in the previous max sequence is equal to the M(i) then keep both sequences. 
+Therefore M(i) will not be a single sequence but there might be a list of tasks all with same max work value.
+
+Code:
+
+Struct program
+{
+int id;                //unique id to identify a program
+int cnt;              //This will tell me what max_time, I can spend on
+                   //tv till end of this program, if I include this program.
+int start;            // Start time of the program
+int end;             // End time of the program
+int channel_no; // Channel id of the program, skipped in main code
+}
+
+// FIRST SORT THE ARRAY ACCORDING TO START TIME
+// THEN
+
+for (i=0; i< n; i++)
+{
+max = 0;
+j = 0;
+while (programs[i].start > programs[j].end )
+{
+    if (max < programs[j].cnt)
+        max = programs[j].cnt;
+    j++;    
+}
+programs[i].cnt = max + programs[i].end - programs[i].start;
+}
+
+//Get the maximum count value
+int res = 0;
+for (i=0; i< n; i++)
+	if (res < programs[i].cnt)
+    		res = programs[i].cnt;    
+
+Code Source : http://tech-queries.blogspot.in/2011/03/avid-tv-watcher.html
+
+QUESTION
+
+Match the strings from the regular expressions. ( includes \d \s \S * + ? etc.)
+
+Solution
+
+Refer the code you have made in the GPU project.
+
+QUESTION
+
+Write a program to find whether two lines are intersecting.
+
+Solution
+
+Compare slope. If it's the same they are parallel.
+
+Slope : ((y2 - y1) / (x2 - x1))
+
+If the equations are given then 
+y=m1*x+c1 
+y=m2*x+c2 
+
+m1 and m2 are slopes of lines.
+Here c value is the point where line is intersecting with Y-axis i.e. (0,c). 
+You can easily find value of c by putting x=0 in the given equation.
+
+case1) lines do not intersect if both the lines are parallel to each other that is 
+m1=m2 and c1 != c2 
+case2)lines are collinear when m1=m2 and c1= c2 in this case there will be more than one point where line intersects(all the points on the line infinite) 
+case3) for all other case there will be exact one intersection point 
+
+Intersection point : ( It is nothing but solving the given equations )
+xs=(c1-c2)/(m2-m1) 
+ys=m1*xs+c1 
+where (xs,ys) is intersection point..
+
+
+QUESTION
+
+Write a program to find whether two lines are intersecting.
+
+Solution
+
+Generate a random string of fixed length based on the character set that is URL-safe. 
+For ex: Suppose we want to generate a 6-char length string, generate 6 random characters from a URL-safe character set. Once you generate the random string, say h6Tu6M, use it to build a short-form URL like: shrt.ul/h6Tu6M. 
+
+Use a mapping table(say a hashtable) to map the short URL to the long URL. 
+Ex: h6Tu6M => domainwithlongname/with/lengthy/resource/path In this step we also need to ensure that the randomly generated string is not already in use. In case a duplicate is generated, try creating another random string. 
+
+The app which is hosted at: h t t p : shrt.ul/ can look up the short resource path h6Tu6M and redirect the user to the actual resource h t t p://w w w .domainwithlongname/with/lengthy/resource/path
+
+--------- Another approach
+Most of the popular URL shortening services simply take the ID in the database of the URL and then convert it to either Base 36 [a-z0-9] (case insensitive) or Base 62 (case sensitive). 
+A simplified example of a TinyURL Database Table:
+ID       URL                           VisitCount
+ 1       www.google.com                        26
+ 2       www.stackoverflow.com               2048
+ 3       www.reddit.com                        64
+...
+ 20103   www.digg.com                         201
+ 20104   www.4chan.com                         20
+So, on your webserver you might have a route action that looks like (pseudo code):
+Route: www.mytinyurl.com/{UrlID}
+Route Action: RouteURL(UrlID);
+Which routes any incoming request to your server that has any text after your domain www.mytinyurl.com to your associated method, RouteURL. 
+It supplies the text that is passed in after the forward slash in your URL to that method.
+So, lets say you requested: www.mytinyurl.com/fif
+"fif" would then be passed to your method, RouteURL(String UrlID). RouteURL would then convert "fif" to its base10 equivalent, 20103, and a database request will be made to redirect to whatever URL is stored under the ID 20103 (in this case, www.digg.com). You would also increase the visit count for Digg by one before redirecting to the correct URL. 
+
+QUESTION
+
+Find nth fibonacci number.
+
+Solution
+
+Refer the code to find the nth fibonacci number in O(logn) time.
+
+
+QUESTION
+
+Given an array of ints, find the most frequent non-empty subarray in it. If there are more than one such sub-arrays return the longest one/s. 
+Note: Two subarrays are equal if they contain identical elements and elements are in the same order.
+For example: if input = {4,5,6,8,3,1,4,5,6,3,1}
+Result: {4,5,6}
+( Subarray 4,5,6 are occuring 2 times with length 3 (from index 0 and again from index 6 … Other subarrays are also there like 3,1 but length is 2) 
+Solution
+
+1. Build a suffix array and sort the array. Use 2 variables - one to maintain the length of the longest repeated sub array and the other to maintain the frequency. 
+
+2. Traverse the sorted array to find out the most occurring and longest repeated subarray and return it.
+
+Suffix array is actually a 2D array. The suffix array for the given array {4,5,6,8,3,1,4,5,6,3,1} would be as below. Here, each element of the array itself is an array. 
+
+{4,5,6,8,3,1,4,5,6,3,1} 
+{5,6,8,3,1,4,5,6,3,1} 
+{6,8,3,1,4,5,6,3,1} 
+{8,3,1,4,5,6,3,1} 
+{3,1,4,5,6,3,1} 
+{1,4,5,6,3,1} 
+{4,5,6,3,1} 
+{5,6,3,1} 
+{6,3,1} 
+{3,1} 
+{1} 
+
+After sorting the suffix array, you'd get: 
+{8,3,1,4,5,6,3,1} 
+{6,8,3,1,4,5,6,3,1} 
+{6,3,1} 
+{5,6,8,3,1,4,5,6,3,1} 
+{5,6,3,1} 
+{4,5,6,8,3,1,4,5,6,3,1} 
+{4,5,6,3,1} 
+{3,1,4,5,6,3,1} 
+{3,1} 
+{1,4,5,6,3,1} 
+{1} 
+
+Checking for matching subarrays is easily done in a suffix array by comparing the prefixes. If you traverse the above sorted array and compare adjacent elements for similarity you'd see the prefix [4,5,6] is occurring maximum number(=2) of times and is also of maximum length. There are other subarrays as well, like [6], [5,6],[3,1] and [1] that are occurring 2 times, but they are shorter than the subarray [4,5,6], which is our required answer. HTH.
+
+Code source : https://sites.google.com/site/spaceofjameschen/home/array/findthemostlongestormostfrequentlongestsubarray--amazon
+
+
+
+
+
+QUESTION
+
+Function to reverse a c style sub-string 
+start - points to the first character to be reversed 
+end - points to character after the last character to be reversed 
+Note: STL not allowed 
+void reverse(char* start, char* end)
+
+Solution
+
+void reverse_C_string(char* start, char* end)
+{
+    if(end == NULL || start == NULL)
+        return;
+    
+    while( start < end )
+    {
+                char temp = *start;
+                *start++ = *end;
+                *end-- = temp;
+    	    }
+}
+QUESTION
+
+You have unique ASCII characters. How you can sort them ? 
+
+Solution
+
+O(n) computations:
+void sortUniqueAscii(char* letters, size_t size)
+{
+   bool found[256] = { false };
+
+   for (int i=0; i < size; ++i) 
+      found[letters[i]] = true;
+
+   int j=0;	
+
+   for (int i=0; i < size && j < 256; ++j) 
+      if (found[j]) letters[i++] = char(j);
+
+}
+
+

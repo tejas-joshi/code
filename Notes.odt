@@ -1,0 +1,29 @@
+﻿Compare function of both stdlib (qsort) and algorithm (sort) work differently.
+
+
+sort:
+
+// compare function for sort
+bool compare (int i,int j) 
+{ 
+	return (i<j); 	// this sorts the array in ascending order
+}
+
+sort (vector.begin(), vector.end(),<compare function>);
+
+requires #include<algorithm>
+
+qsort:
+
+// compare function for qsort
+int compare (const void * a, const void * b)
+{
+	return ( *(int*)a - *(int*)b ); //swap if (a>b) i.e. This result is +ve
+}
+calling function :
+qsort (<array name>, <no. of elements>, <size of each element>, <compare fun.>);
+requires #include<stdlib.h>
+
+
+
+Prefix Codes, means the codes (bit sequences) are assigned in such a way that the code assigned to one character is not prefix of code assigned to any other character. This is how Huffman Coding makes sure that there is no ambiguity when decoding the generated bit stream.

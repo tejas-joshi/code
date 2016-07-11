@@ -1,0 +1,8 @@
+﻿n is fibonacci number if and only if one or both of 5n^2+4 or 5n^2-4 is a perfect square.
+
+e.g. 5 ==>  5(n^2) + 4 = 129         OR            5(n^2) – 4 = 121   ==> 121 is perfect square so 5 is fibonacci number.
+
+
+
+
+ 

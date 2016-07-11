@@ -1,0 +1,2 @@
+Given two integers A and B as input. Find number of Fibonacci numbers existing in between these two numbers (including A and B). 
+For example, A = 3 and B = 18, there are 4 Fibonacci numbers in between {3, 5, 8, 13}. Do it in O(log K) time, where K is max(A, B). What is your observation?

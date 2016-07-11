@@ -1,0 +1,75 @@
+﻿
+
+
+Applications of Depth First Search
+Depth-first search (DFS) is an algorithm (or technique) for traversing a graph. 
+Following are the problems that use DFS as a bulding block.
+1) For an unweighted graph, DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree.
+2) Detecting cycle in a graph 
+A graph has cycle if and only if we see a back edge during DFS. So we can run DFS for the graph and check for back edges. (See this for details)
+3) Path Finding
+We can specialize the DFS algorithm to find a path between two given vertices u and z.
+i) Call DFS(G, u) with u as the start vertex.
+ii) Use a stack S to keep track of the path between the start vertex and the current vertex.
+iii) As soon as destination vertex z is encountered, return the path as the
+contents of the stack
+See this for details.
+4) Topological Sorting
+See this for details.
+5) To test if a graph is bipartite
+We can augment either BFS or DFS when we first discover a new vertex, color it opposited its parents, and for each other edge, check it doesn’t link two vertices of the same color. The first vertex in any connected component can be red or black! See this for details.
+6) Finding Strongly Connected Components of a graph A directed graph is called strongly connected if there is a path from each vertex in the graph to every other vertex. (See this for DFS based algo for finding Strongly Connected Components)
+
+7) Solving puzzles with only one solution, such as mazes. (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
+
+Sources:
+http://www8.cs.umu.se/kurser/TDBAfl/VT06/algorithms/LEC/LECTUR16/NODE16.HTM
+http://en.wikipedia.org/wiki/Depth-first_search
+http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/GraphAlgor/depthSearch.htm
+http://ww3.algorithmdesign.net/handouts/DFS.pdf
+
+
+
+
+
+
+Applications of Minimum Spanning Tree Problem
+Minimum Spanning Tree (MST) problem: Given connected graph G with positive edge weights, find a min weight set of edges that connects all of the vertices.
+MST is fundamental problem with diverse applications.
+
+Network design.
+– telephone, electrical, hydraulic, TV cable, computer, road
+The standard application is to a problem like phone network design. You have a business with several offices; you want to lease phone lines to connect them up with each other; and the phone company charges different amounts of money to connect different pairs of cities. You want a set of lines that connects all your offices with a minimum total cost. It should be a spanning tree, since if a network isn’t a tree you can always remove some edges and save money.
+Approximation algorithms for NP-hard problems.
+– traveling salesperson problem, Steiner tree
+A less obvious application is that the minimum spanning tree can be used to approximately solve the traveling salesman problem. A convenient formal way of defining this problem is to find the shortest path that visits each point at least once.
+Note that if you have a path visiting all points exactly once, it’s a special kind of tree. For instance in the example above, twelve of sixteen spanning trees are actually paths. If you have a path visiting some vertices more than once, you can always drop some edges to get a tree. So in general the MST weight is less than the TSP weight, because it’s a minimization over a strictly larger set.
+On the other hand, if you draw a path tracing around the minimum spanning tree, you trace each edge twice and visit all points, so the TSP weight is less than twice the MST weight. Therefore this tour is within a factor of two of optimal.
+Indirect applications.
+– max bottleneck paths
+– LDPC codes for error correction
+– image registration with Renyi entropy
+– learning salient features for real-time face verification
+– reducing data storage in sequencing amino acids in a protein
+– model locality of particle interactions in turbulent fluid flows
+– autoconfig protocol for Ethernet bridging to avoid cycles in a network
+Cluster analysis
+k clustering problem can be viewed as finding an MST and deleting the k-1 most
+expensive edges. See this for more details.
+Sources:
+http://www.cs.princeton.edu/courses/archive/spr07/cos226/lectures/mst.pdf
+http://www.ics.uci.edu/~eppstein/161/960206.html
+
+
+
+
+
+Boruvka’s algorithm for Minimum Spanning Tree
+Following two algorithms are generally taught for Minimum Spanning Tree (MST) problem.
+Prim’s algorithm
+Kruskal’s algorithm
+There is a third algorithm called Boruvka’s algorithm for MST which (like the above two) is also Greedy algorithm.  The Boruvka’s algorithm is the oldest minimum spanning tree algorithm was discovered by Boruuvka in 1926, long before computers even existed. The algorithm was published as a method of constructing an efficient electricity network. See following links for the working and applications of the algorithm.
+Sources:
+http://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm
+http://theory.cs.uiuc.edu/~jeffe/teaching/algorithms/notes/12-mst.pdf
+

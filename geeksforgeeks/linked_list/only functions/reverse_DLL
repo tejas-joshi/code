@@ -1,0 +1,14 @@
+void reverseDLL(node **head)
+{
+	node *temp,*current = *head;
+	while(current)
+	{
+		temp = current->prev;
+		current->prev = current->next;
+		current->next = temp;
+		current = current->prev;
+	}
+
+	if(temp)
+		*head = temp->prev;
+}
