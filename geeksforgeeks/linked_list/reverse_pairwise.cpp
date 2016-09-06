@@ -55,7 +55,7 @@ node *reversePair(node *head)
 	if(!head || !(head->next))	// at least two nodes is necessary
 		return head;
 
-	node *newHead =	head->next;	// new head pointer to be returned
+	node *newHead = head->next;	// new head pointer to be returned
 	node *nd = head;		
 	node *nxt,*nxtnxt;	
 
@@ -67,7 +67,7 @@ node *reversePair(node *head)
 		nxt->next = nd;
 
 		// taking care about the next of nd
-		if(nxtnxt->next)	
+		if(nxtnxt && nxtnxt->next)	
 			nd->next = nxtnxt->next;
 		else		
 			nd->next = nxtnxt;

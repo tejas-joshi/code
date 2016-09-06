@@ -2,9 +2,9 @@
 
 /******
 
-Given an array containing 0s and 1s, parition the arrays of 0 and 1.
+Given an array containing 0s and 1s, partition the arrays of 0 and 1.
 i.e. all 0s on left side and 1s on right side.
-
+ 
 Logic :
 * Take two indexes i and j... i=0 and j=n-1
 * Keep incrementing i till A[i]==0

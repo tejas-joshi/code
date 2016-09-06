@@ -43,14 +43,14 @@ int computeMedian(int *A,int *B,int n)
 		if(m1<m2)	// m1<m2 means median is in higher part of A and lower part of B
 		{
 			if(n%2==0)	// even case .. take care about the parameters we are passing...
-				return computeMedian(A+n/2-1,B,n-n/2+1);
+				return computeMedian(A+(n/2-1),B,n-(n/2-1));
 			else		// odd case... take care about the parameters we are passing,
 				return computeMedian(A+n/2,B,n-n/2);
 		}
 		else		// m1>m2 means median is in lower part of A and higher part of B
 		{
 			if(n%2==0)	// even case.... take care about the parameters we are passing... especially 1st and 2nd
-				return computeMedian(B+n/2-1,A,n-n/2+1);
+				return computeMedian(B+(n/2-1),A,n-(n/2-1));
 			else		// odd case... take care about the parameters we are passing...  especially 1st and 2nd..
 				return computeMedian(B+n/2,A,n-n/2);
 		}

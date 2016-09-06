@@ -39,7 +39,7 @@ int main()
 			high=mid-1;
 		mid = low+(high-low)/2;
 	}
-
+ 
 	low=0;
 	high=n-1;
 

@@ -23,6 +23,9 @@ int main()
  * P - Vector for backtracing.. P has size same as A and filled up P[i] for every iteration
  * 	  P[i] stores the position of the predecessor of A[i] in the longest increasing subsequence ending at A[i].
  */
+ 
+ // http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+ // Refer above link. It is easy to understand.
 
 	B.push_back(0);
 	

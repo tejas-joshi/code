@@ -36,12 +36,12 @@ int main()
 		for(int j=0;j<n;j++)
 			cin >> A[i][j];
 
-	int max1s=n-1,rowInd=-1;	
+	int col=n-1,rowInd=-1;	
 	for(int i=0;i<m;i++)
 	{
-		while(max1s>=0 && A[i][max1s]==1)
+		while(col>=0 && A[i][col]==1)
 		{
-			max1s--;
+			col--;
 			rowInd=i;
 		}
 	}

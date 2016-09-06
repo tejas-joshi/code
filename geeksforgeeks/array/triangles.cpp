@@ -9,7 +9,7 @@ As another example, consider the array {10, 21, 22, 100, 101, 200, 300}.
 There can be 6 possible triangles: {10, 21, 22}, {21, 100, 101}, {22, 100, 101}, {10, 100, 101}, {100, 101, 200} and {101, 200, 300}
 
 LOGIC :
-1. Sort the array in non-decreasing order.
+1. Sort the array in increasing order.
 
 2. Initialize two pointers ‘i’ and ‘j’ to first and second elements respectively, and initialize count of triangles as 0.
 

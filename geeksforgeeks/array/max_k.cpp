@@ -3,8 +3,8 @@
 /*
 Logic :
 
-Take deque of size k.
-Use index of the array in the deque
+Take dequeue of size k.
+Use index of the array in the dequeue
 
 From the front side.. take out the elements which are going out side the window.
 From the back side.. take out the elements which are lesser than current element

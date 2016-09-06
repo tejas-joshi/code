@@ -5,7 +5,7 @@
 Given a string, print all permutations of it in sorted order. 
 For example, if the input string is “ABC”, then output should be “ABC, ACB, BAC, BCA, CAB, CBA”.
 
-Following are the steps to print the permutations lexicographic-ally
+Following are the steps to print the permutations lexicographically
 
 1. Sort the given string in non-decreasing order and print it. 
 	The first permutation is always the string sorted in non-decreasing order.

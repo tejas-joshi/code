@@ -7,7 +7,7 @@ o/p : 2 4
 
 Logic :
 It is same as finding one repeating and the missing number from the range.
-do XOR of all the elements of array + 1 to n-2... this will be xor of two elements which are repeating let say xorAll.
+do XOR of (all the elements of array) and (1 to n-2)... this will be xor of two elements which are repeating let say xorAll.
 Now find the bit position where both numbers are differing. ( xorAll & ~(xorAll-1) ) let say lastMSB
 
 let the two numbers which are missing is x and y..
@@ -18,6 +18,12 @@ Refer code for more clarity...
 
 TC : O(n)
 SC : O(1)
+
+>>> Another easy logic ::
+If changing the sign is allowed, just change the sign of A[(value-1)].
+There are two points, last two number will not be referenced so it will as it is.
+The numbers which are repeating twice, so their signs will be changes twice so that number will be same as initially.
+We have to find the indexes in first n-2 numbers that has positive value. These will be repeating numbers.
 
 **/
 

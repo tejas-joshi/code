@@ -8,8 +8,8 @@ Logic :
 123456784987654321
 start with a number
 
-123456784 987654321
-         ^the first place where the left-digit is less-than the right-digit is here.  Digit "x" is 4
+123456784987654321
+            ^the first place where the left-digit is less-than the right-digit is here.  Digit "x" is 4
 
 123456784 987654321
               ^find the smallest digit larger than 4 to the right (ceiling)

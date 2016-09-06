@@ -40,6 +40,8 @@ void insert(node **head,int data)
 	{
 		node *nextHead = XOR((*head)->xPtr,NULL);
 		(*head)->xPtr = XOR(nextHead,temp);
+		
+		// i.e. (*head)->xPtr = XOR((*head)->xPtr,temp);
 	}
 
 	// setting the new node as head node	

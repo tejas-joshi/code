@@ -3,7 +3,7 @@
 /*******
 Given a matrix, print it in spiral form.
 Logic:
-You know the logic. You have done it many time.. 
+You know the logic. You have done it many times.. 
 4 for loops inside a loop...
 
 EACH ITERATION 
@@ -33,6 +33,8 @@ int main()
 			cin >> A[i][j];
 
 	int top=0,down=m-1,left=0,right=n-1,count=0;
+	
+	// Here you can store m*n into some variable to avoid m*n multiplications.
 	while(count<=(m*n))	
 	{
 		for(int i=left;i<=right && count<=m*n;i++,count++)	// printing left to right

@@ -15,7 +15,7 @@ Input: arr[] = {2, 5, 3, 5, 4, 4, 2, 3}, x = 3, y = 2
 Output: Minimum distance between 3 and 2 is 1.
 
 Logic :
-Take a varialbe 'prev'
+Take a variable 'prev'
 loop through all the elements 
 
 If prev is -1 and element is either x or y then prev=current index.
